@@ -1,20 +1,81 @@
+/* =====================
+   THEME VARIABLES
+===================== */
+
+:root {
+    --bg: #ffffff;
+    --text: #222222;
+    --muted: #555555;
+    --border: #cccccc;
+    --header-bg: #f5f7fb;
+    --row-hover: #f3f6ff;
+    --col-hover: #eef2ff;
+    --good: #e7f7ec;
+    --warn: #fff3cd;
+    --notes-bar: #d0d7ff;
+    --link-bg: #fafafa;
+    --footnote: #666666;
+    --note-active: rgba(120, 140, 255, 0.15);
+}
+
+[data-theme="dark"] {
+    --bg: #0f1115;
+    --text: #e6e6e6;
+    --muted: #aaaaaa;
+    --border: #2a2d35;
+    --header-bg: #1a1d24;
+    --row-hover: #1e222c;
+    --col-hover: #242938;
+    --good: #2a3d2e;
+    --warn: #3d362a;
+    --notes-bar: #60648f;
+    --link-bg: #1a1d24;
+    --footnote: #9aa0b3;
+    --note-active: rgba(120, 140, 255, 0.25);
+}
+
+/* =====================
+   BASE
+===================== */
+
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     margin: 24px;
-    color: #222;
-}
-
-h1 {
-    margin-bottom: 4px;
+    background: var(--bg);
+    color: var(--text);
 }
 
 .subtitle {
-    color: #555;
-    margin-bottom: 16px;
+    color: var(--muted);
 }
+
+/* =====================
+   TOP BAR
+===================== */
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-toggle {
+    font-size: 20px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: var(--text);
+}
+
+/* =====================
+   TABLE
+===================== */
 
 .table-wrap {
     overflow-x: auto;
+    margin-top: 16px;
 }
 
 table {
@@ -22,43 +83,75 @@ table {
     min-width: 1200px;
 }
 
-th, td {
-    position: relative;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
+th,
+td {
+    padding: 14px 12px;
+    border: 1px solid var(--border);
     text-align: center;
     white-space: nowrap;
+    line-height: 1.4;
 }
 
 th {
-    background: #f5f7fb;
+    background: var(--header-bg);
     font-weight: 600;
 }
 
-td:first-child,
-th:first-child {
+th:first-child,
+td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--header-bg);
     text-align: left;
-    background: #fafafa;
     font-weight: 600;
 }
 
-tr:hover td {
-    background: #f3f6ff;
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+tr:hover td:not(:first-child) {
+    background: var(--row-hover);
+}
+
+td.hover-col:not(:first-child),
+th.hover-col:not(:first-child) {
+    background: var(--col-hover) !important;
+}
+
+td:first-child.hover-col,
+th:first-child.hover-col {
+    background: var(--header-bg) !important;
 }
 
 .good {
-    background: #e7f7ec;
+    background: var(--good);
     font-weight: 600;
 }
 
 .warn {
-    background: #fff3cd;
+    background: var(--warn);
     font-weight: 600;
 }
 
-.hover-col {
-    background: #eef2ff !important;
+/* =====================
+   FOOTNOTES
+===================== */
+
+sup {
+    font-size: 0.7em;
+    vertical-align: super;
+    color: var(--footnote);
+    margin-left: 1px;
+    cursor: pointer;
 }
+
+/* =====================
+   NOTES
+===================== */
 
 .notes {
     position: relative;
@@ -74,12 +167,8 @@ tr:hover td {
     left: 0;
     width: 4px;
     height: 100%;
-    background: #d0d7ff;
+    background: var(--notes-bar);
     border-radius: 2px;
-}
-
-.notes h2 {
-    margin-bottom: 8px;
 }
 
 .notes ol {
@@ -88,9 +177,20 @@ tr:hover td {
 }
 
 .notes li {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+    line-height: 1.45;
+    transition: background 0.3s ease;
 }
 
+.notes li.note-active {
+    background: var(--note-active);
+    border-radius: 6px;
+    padding: 6px 8px;
+}
+
+/* =====================
+   CONTRIBUTE
+===================== */
 
 .contribute {
     margin-top: 32px;
@@ -99,15 +199,9 @@ tr:hover td {
 .contribute a {
     display: inline-block;
     padding: 10px 14px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     border-radius: 6px;
     text-decoration: none;
-    color: #222;
-    background: #fafafa;
-    font-weight: 500;
-}
-
-.contribute a:hover {
-    background: #f0f4ff;
-    border-color: #b5c4ff;
+    color: var(--text);
+    background: var(--link-bg);
 }

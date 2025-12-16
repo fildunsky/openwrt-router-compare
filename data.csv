@@ -7,4 +7,4 @@ Cudy TR3000 / TR30,ARM Cortex-A53,Wi-Fi 6,128 / 256 MB NAND[4],512 MB DDR3|good,
 Netis NX31,ARM Cortex-A53,Wi-Fi 6,128 MB NAND,256 MB DDR3,4 внешние,Нет,Нет,Нет,Нет,1 WAN + 3 LAN,Настольный
 Routerich AX3000,ARM Cortex-A53,Wi-Fi 6,128 MB NAND,512 MB DDR3|good,6 внешних|good,Нет,USB 3.0|good,Да|good,Нет,1 WAN + 3 LAN,Настольный
 CMCC RAX3000 M,ARM Cortex-A53,Wi-Fi 6,128 MB NAND / 64 GB eMMC,512 MB DDR4|good,4 внешние,Нет,USB 3.0|good,Да**|warn,Нет,1 WAN + 3 LAN,Настольный
-CMCC RAX3000 Me,ARM Cortex-A53,Wi-Fi 6,128 MB NAND / 64 GB eMMC[1],512 MB DDR3 / DDR4|good,4 внешние,Нет,USB 3.0 / Нет|good,Да[3]|warn,Нет,1 WAN + 3 LAN,Настольный
+CMCC RAX3000 Me[1],ARM Cortex-A53,Wi-Fi 6,128 MB NAND / 64 GB eMMC,512 MB DDR3 / DDR4|good,4 внешние,Нет,USB 3.0 / Нет|good,Да[3]|warn,Нет,1 WAN + 3 LAN,Настольный
