@@ -93,7 +93,7 @@ function parseNotes(text) {
 function renderFootnotes(text, notes) {
     let result = text.replace(/\*\*/g, "[3]");
 
-    return result.replace(/\[(\d)\]/g, (_, n) => {
+    return result.replace(/\[(\d+)\]/g, (_, n) => {
         return notes[n]
         ? `<sup data-note="${n}" title="${notes[n]}">${n}</sup>`
         : `<sup>${n}</sup>`;
@@ -147,10 +147,12 @@ function renderNotes(notes) {
     list.innerHTML = "";
 
     Object.keys(notes)
+        .map(Number)
         .sort((a, b) => a - b)
         .forEach(id => {
         const li = document.createElement("li");
         li.id = `note-${id}`;
+        li.value = id;              // ← КЛЮЧЕВОЕ ИЗМЕНЕНИЕ
         li.textContent = notes[id];
         list.appendChild(li);
     });

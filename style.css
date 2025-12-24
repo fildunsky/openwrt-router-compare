@@ -26,9 +26,9 @@
     --header-bg: #1a1d24;
     --row-hover: #1e222c;
     --col-hover: #242938;
-    --good: #2a3d2e;
-    --warn: #3d362a;
-    --notes-bar: #60648f;
+    --good: #1f3b2c;
+    --warn: #3b3320;
+    --notes-bar: #4c5cff;
     --link-bg: #1a1d24;
     --footnote: #9aa0b3;
     --note-active: rgba(120, 140, 255, 0.25);
@@ -157,7 +157,7 @@ sup {
     position: relative;
     margin-top: 32px;
     max-width: 1000px;
-    padding-left: 20px;
+    padding-left: 28px;
 }
 
 .notes::before {
@@ -173,19 +173,33 @@ sup {
 
 .notes ol {
     margin: 0;
-    padding-left: 18px;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: notes;
 }
 
 .notes li {
+    position: relative;
     margin-bottom: 10px;
+    padding-left: 56px;
     line-height: 1.45;
     transition: background 0.3s ease;
+}
+
+.notes li::before {
+    content: attr(value) ".";
+    position: absolute;
+    left: 0;
+    width: 48px;
+    text-align: right;
+    color: var(--muted);
 }
 
 .notes li.note-active {
     background: var(--note-active);
     border-radius: 6px;
-    padding: 6px 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 /* =====================
