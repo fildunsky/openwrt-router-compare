@@ -219,3 +219,18 @@ sup {
     color: var(--text);
     background: var(--link-bg);
 }
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+
+@media (max-width: 768px) {
+    th:first-child,
+    td:first-child {
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        max-width: 150px;
+    }
+}
